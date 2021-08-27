@@ -4,8 +4,10 @@ echo on
 source ../scripts/common_setup.tcl
 
 #lmap LIB $LIB_FILES { read_liberty -lib -ignore_miss_func $LIB }
-lmap RTL $RTL_FILES { read_verilog -I $INCLUDE_DIR $RTL }
-
+#lmap RTL $RTL_FILES { read_verilog -I $INCLUDE_DIR $RTL }
+foreach f $RTL_FILES {
+	read_verilog -I $INCLUDE_DIR $f
+}
 #hierarchy -check -top $TOP_MODULE
 synth -top $DESIGN_NAME
 #share -aggressive

@@ -1,0 +1,127 @@
+[SCL] 08/27/2021 16:45:18 PID:24578 Client:ASIC Authorization failed Synopsys-Release 2019.12
+[SCL] 08/27/2021 16:45:20 PID:24578 Client:ASIC Server:27020@ASIC Authorization succeeded Design-Compiler 2019.12
+[SCL] Checking status for feature Design-Compiler - 08/27/2021 16:45:20
+[SCL] 08/27/2021 16:45:20 PID:24578 Client:ASIC Server:27020@ASIC Checkout succeeded Design-Compiler 2019.12
+[SCL] 08/27/2021 16:45:20 PID:24578 Client:ASIC Authorization failed Synopsys 2019.12
+[SCL] 08/27/2021 16:45:20 PID:24578 Client:ASIC Authorization failed DC-Debug 2019.12
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version Q-2019.12-SP1 for linux64 - Jan 15, 2020 
+
+                    Copyright (c) 1988 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+[SCL] 08/27/2021 16:45:20 PID:24578 Client:ASIC Server:27020@ASIC Authorization succeeded DC-Expert 2019.12
+Initializing gui preferences from file  /home/student/.synopsys_dv_prefs.tcl
+set target_library "lsi_10k.db"
+lsi_10k.db
+set link_library "* $target_library"
+* lsi_10k.db
+set search_path ". ../rtl ../rtl/include"
+. ../rtl ../rtl/include
+set RTL_FILES { ../rtl/abs.v  ../rtl/multiplier.v ../rtl/signext.v ../rtl/MAF_Filter.v  ../rtl/comparator.v ../rtl/mic_clk.v ../rtl/reg.v ../rtl/sonarOnChip.v ../rtl/user_project_wrapper.v}
+ ../rtl/abs.v  ../rtl/multiplier.v ../rtl/signext.v ../rtl/MAF_Filter.v  ../rtl/comparator.v ../rtl/mic_clk.v ../rtl/reg.v ../rtl/sonarOnChip.v ../rtl/user_project_wrapper.v
+analyze -format sverilog $RTL_FILES
+Running PRESTO HDLC
+[SCL] Checking status for feature HDL-Compiler - 08/27/2021 16:45:21
+[SCL] 08/27/2021 16:45:21 PID:24578 Client:ASIC Server:27020@ASIC Checkout succeeded HDL-Compiler 2019.12
+Compiling source file ../rtl/abs.v
+Compiling source file ../rtl/multiplier.v
+Compiling source file ../rtl/signext.v
+Compiling source file ../rtl/MAF_Filter.v
+Compiling source file ../rtl/comparator.v
+Compiling source file ../rtl/mic_clk.v
+Compiling source file ../rtl/reg.v
+Compiling source file ../rtl/sonarOnChip.v
+Opening include file ../rtl/include/defines.v
+Compiling source file ../rtl/user_project_wrapper.v
+Presto compilation completed successfully.
+Warning: Can't read link_library file 'lsi_10k.db'. (UID-3)
+1
+1
+dc_shell> elaborate SonarOnChip
+Loading db file '/home/synopsys/syn/Q-2019.12-SP1/libraries/syn/gtech.db'
+Loading db file '/home/synopsys/syn/Q-2019.12-SP1/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Warning: Can't read link_library file 'lsi_10k.db'. (UID-3)
+Running PRESTO HDLC
+Presto compilation completed successfully. (SonarOnChip)
+Elaborated 1 design.
+Current design is now 'SonarOnChip'.
+Warning: Can't read link_library file 'lsi_10k.db'. (UID-3)
+Information: Building the design 'REG'. (HDL-193)
+
+Inferred memory devices in process
+	in routine REG line 16 in file
+		'../rtl/reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        Q_reg        | Flip-flop |  16   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (REG)
+Information: Building the design 'signext'. (HDL-193)
+Presto compilation completed successfully. (signext)
+Error: Width mismatch on port 'data_o' of reference to 'signext' in 'SonarOnChip'. (LINK-3)
+Information: Building the design 'MULTI'. (HDL-193)
+Presto compilation completed successfully. (MULTI)
+Error: Width mismatch on port 'data_i' of reference to 'MULTI' in 'SonarOnChip'. (LINK-3)
+Error: Width mismatch on port 'amplify' of reference to 'MULTI' in 'SonarOnChip'. (LINK-3)
+Error: Width mismatch on port 'multiplier_o' of reference to 'MULTI' in 'SonarOnChip'. (LINK-3)
+Information: Building the design 'REG' instantiated from design 'SonarOnChip' with
+	the parameters "n=32". (HDL-193)
+
+Inferred memory devices in process
+	in routine REG_n32 line 16 in file
+		'../rtl/reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        Q_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (REG_n32)
+Error: Width mismatch on port 'D' of reference to 'REG' in 'SonarOnChip'. (LINK-3)
+Error: Width mismatch on port 'Q' of reference to 'REG' in 'SonarOnChip'. (LINK-3)
+Error: Unable to match ports of cell amp_reg ('REG') to 'REG_n32'. (LINK-25)
+Information: Building the design 'Abs'. (HDL-193)
+Presto compilation completed successfully. (Abs)
+Error: Width mismatch on port 'data_in' of reference to 'Abs' in 'SonarOnChip'. (LINK-3)
+Error: Width mismatch on port 'data_out' of reference to 'Abs' in 'SonarOnChip'. (LINK-3)
+Information: Building the design 'MAF_FILTER'. (HDL-193)
+Presto compilation completed successfully. (MAF_FILTER)
+Error: Width mismatch on port 'data_in' of reference to 'MAF_FILTER' in 'SonarOnChip'. (LINK-3)
+Error: Width mismatch on port 'data_out' of reference to 'MAF_FILTER' in 'SonarOnChip'. (LINK-3)
+Information: Building the design 'comparator'. (HDL-193)
+Presto compilation completed successfully. (comparator)
+Error: Width mismatch on port 'data_i' of reference to 'comparator' in 'SonarOnChip'. (LINK-3)
+Error: Width mismatch on port 'treshold' of reference to 'comparator' in 'SonarOnChip'. (LINK-3)
+Information: Building the design 'Mic_Clk'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Mic_Clk line 22 in file
+		'../rtl/mic_clk.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    micclk_t_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      count_reg      | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (Mic_Clk)
+1
+dc_shell> exit
+
+Thank you...
