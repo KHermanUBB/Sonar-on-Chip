@@ -1,5 +1,5 @@
 set RESULTS_DIR ./results
-set SKY130_PATH $env(PDK_ROOT)
+set SKY130_PATH /home/student/openlane/pdks/skywater-pdk
 file mkdir $RESULTS_DIR
 #set RTL_FILES [glob -directory ../rtl/ *.v]
 #set RTL_FILES { ../rtl/IIR_Filter.v ../rtl/abs.v  ../rtl/multiplier.v ../rtl/signext.v ../rtl/MAF_Filter.v  ../rtl/comparator.v ../rtl/mic_clk.v ../rtl/reg.v ../rtl/sonarOnChip.v ../rtl/user_project_wrapper.v}

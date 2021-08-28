@@ -28,9 +28,9 @@ UPRJ_RTL_PATH = $(UPRJ_VERILOG_PATH)/rtl
 UPRJ_BEHAVIOURAL_MODELS = ../
 
 ## RISCV GCC 
-GCC_PATH?=/Users/ronaldv/Projects/copperv_work/util/toolchain/bin/
-GCC_PREFIX?=riscv32-unknown-elf
-PDK_PATH?=/Users/ronaldv/Projects/PDKs/share/pdk/sky130A/
+GCC_PATH?=/opt/riscv/bin
+GCC_PREFIX?=riscv64-unknown-elf
+PDK_PATH?=$(PDK_ROOT)/sky130A
 
 ## Simulation mode: RTL/GL
 SIM?=RTL
@@ -67,7 +67,7 @@ endif
 %.hex: %.elf
 	${GCC_PATH}/${GCC_PREFIX}-objcopy -O verilog $< $@ 
 	# to fix flash base address
-	gsed -i 's/@10000000/@00000000/g' $@
+	sed -i 's/@10000000/@00000000/g' $@
 
 %.bin: %.elf
 	${GCC_PATH}/${GCC_PREFIX}-objcopy -O binary $< /dev/stdout | tail -c +1048577 > $@
