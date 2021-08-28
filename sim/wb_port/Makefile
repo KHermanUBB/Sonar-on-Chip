@@ -28,9 +28,15 @@ UPRJ_RTL_PATH = $(UPRJ_VERILOG_PATH)/rtl
 UPRJ_BEHAVIOURAL_MODELS = ../
 
 ## RISCV GCC 
+<<<<<<< HEAD
 GCC_PATH?=/opt/riscv/bin
 GCC_PREFIX?=riscv64-unknown-elf
 PDK_PATH?=$(PDK_ROOT)/sky130A
+=======
+GCC_PATH?=/ef/apps/bin/
+GCC_PREFIX?=riscv32-unknown-elf
+PDK_PATH?=/ef/tech/SW.2/sky130A/
+>>>>>>> 6def3b1865a2197bd7d82cc7512ce08e2e1d6063
 
 ## Simulation mode: RTL/GL
 SIM?=RTL
